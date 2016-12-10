@@ -1,0 +1,19 @@
+---
+- name: Check if installed
+  command: dpkg-query -W vagrant
+  register: installed
+  failed_when: installed.rc > 1
+  changed_when: installed.rc == 1
+
+- block:
+
+  - name: Install vagrant for Debian OS family
+    apt: deb={{ vagrant_url_deb }}
+    become: yes
+
+  - name: Install vagrant plugins
+    shell: vagrant plugin install {{ item }}
+    with_items: "{{ vagrant_plugins | list }}"
+    when: vagrant_plugins is defined
+
+  when: installed|failed
