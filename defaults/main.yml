@@ -1,6 +1,7 @@
 ---
-vagrant_version: "1.9.1"
+vagrant_version: "1.9.5"
 
 vagrant_plugins:
   - vagrant-hostmanager
   - vagrant-reload
+  - vagrant-registration
