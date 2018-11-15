@@ -5,3 +5,4 @@ vagrant_plugins:
   - vagrant-hostmanager
   - vagrant-reload
   - vagrant-registration
+  - vagrant-vbquest
